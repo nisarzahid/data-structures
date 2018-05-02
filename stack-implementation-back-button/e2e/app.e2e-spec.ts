@@ -1,14 +1,14 @@
-import { BackButtonPage } from './app.po';
+'use strict'; // necessary for es6 output in node
 
-describe('back-button App', () => {
-  let page: BackButtonPage;
+import { browser, element, by } from 'protractor';
 
+describe('cli-quickstart App', () => {
   beforeEach(() => {
-    page = new BackButtonPage();
+    return browser.get('/');
   });
 
   it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    let pageTitle = element(by.css('app-root h1')).getText();
+    expect(pageTitle).toEqual('Welcome to My First Angular App!!');
   });
 });
